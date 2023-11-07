@@ -6,7 +6,7 @@
     <artifactId>spring-framework-petclinic</artifactId>
     <version>5.3.13</version>
 
-    <name>Spring Framework Petclinic</name>
+    <name>Spring Framework Petclinic</name> 
     <packaging>war</packaging>
     <description>A Spring Framework application based on JSP, Spring MVC, Spring Data JPA, Hibernate and JDBC</description>
     <url>https://spring-petclinic.github.io/</url>
@@ -288,7 +288,23 @@
             <artifactId>javax.activation-api</artifactId>
             <version>${javax-activation.version}</version>
         </dependency>
-
+  <distributionManagement>
+           <repository>
+  <id>maven-releases</id>
+  <name>maven-releases</name>
+  <url>http://44.206.248.246:8081repository/maven-releases/</url>
+</repository>
+  <repository>
+    <id>maven-releases</id>
+    <!-- CHANGE HERE by your team Nexus server -->
+    <url>http://44.206.248.246:8081/repository/maven-releases/</url>
+  </repository>
+  <snapshotRepository>
+    <id>maven-snapshots</id>
+    <!-- CHANGE HERE by your team Nexus server -->
+    <url>http://44.206.248.246:8081/repository/maven-releases/</url>
+  </snapshotRepository>
+</distributionManagement>
     </dependencies>
 
     <!-- Maven plugin versions are mentioned in order to guarantee the build reproducibility in the long term -->
@@ -552,5 +568,18 @@
             <url>https://repo.spring.io/milestone</url>
         </repository>
     </repositories>
-
+<settings>
+  <servers>
+    <server>
+      <id>nexus-releases</id>
+      <username>admin</username>
+      <password>1234</password>
+    </server>
+    <server>
+      <id>nexus-snapshots</id>
+      <username>admin</username>
+      <password>1234</password>
+    </server>
+  </servers>
+</settings>
 </project>
